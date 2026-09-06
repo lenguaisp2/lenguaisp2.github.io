@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesorado en Lengua y Literatura - ISP N° 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul: #096180;
+            --celeste: #0097B2;
+            --gris: #B3B3B3;
+            --fucsia: #F14981;
+            --blanco: #ffffff;
+            --fondo: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--azul);
+            background-color: var(--fondo);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--celeste) 0%, #0080a0 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--blanco);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-box {
+            flex: 0 1 100px;
+        }
+
+        .logo-box img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .plan-label {
+            font-size: 1.1em;
+            color: var(--gris);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2.5px solid var(--blanco);
+            background-color: transparent;
+            color: var(--blanco);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-fucsia {
+            background-color: var(--fucsia);
+            border-color: var(--fucsia);
+        }
+
+        .btn-fucsia:hover {
+            background-color: #d63f6f;
+        }
+
+        /* INFORMACIÓN GENERAL */
+        .info-section {
+            max-width: 1200px;
+            margin: -40px auto 60px;
+            padding: 30px;
+            background-color: var(--blanco);
+            border: 2px solid var(--azul);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-item h3 {
+            color: var(--azul);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            color: var(--azul);
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SECCIONES PRINCIPALES */
+        .section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: var(--azul);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .section h3 {
+            font-size: 1.3em;
+            color: var(--azul);
+            margin-bottom: 20px;
+            font-weight: 700;
+            margin-top: 30px;
+        }
+
+        /* ACORDEONES */
+        .accordion {
+            margin-bottom: 15px;
+        }
+
+        .accordion-header {
+            background-color: var(--azul);
+            color: var(--blanco);
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 2px solid var(--azul);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #074d63;
+            transform: translateX(5px);
+        }
+
+        .accordion-header.expanded {
+            background-color: var(--azul);
+        }
+
+        .accordion-header.collapsed {
+            opacity: 0.7;
+            background-color: var(--celeste);
+        }
+
+        .accordion-header.collapsed:hover {
+            opacity: 0.9;
+            background-color: #0085a0;
+        }
+
+        .accordion-toggle {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid var(--gris);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content.show {
+            display: block;
+        }
+
+        .materia-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .materia-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: var(--azul);
+            font-size: 0.95em;
+        }
+
+        .materia-list li:last-child {
+            border-bottom: none;
+        }
+
+        .materia-list li strong {
+            color: var(--azul);
+            font-weight: 600;
+        }
+
+        /* DESCARGA */
+        .download-btn {
+            display: inline-block;
+            background-color: var(--fucsia);
+            color: var(--blanco);
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            border: 2px solid var(--fucsia);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            background-color: #d63f6f;
+            transform: translateY(-2px);
+        }
+
+        /* CALENDARIO CONSTRUCCIÓN */
+        .construction-box {
+            background-color: #f9f9f9;
+            border: 2px solid var(--gris);
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .construction-box h3 {
+            color: var(--azul);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .construction-box p {
+            color: var(--azul);
+            font-size: 0.95em;
+        }
+
+        /* FAQ */
+        .faq-category {
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--azul);
+            color: var(--gris);
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--blanco);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            font-size: 0.9em;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: var(--fucsia);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            border-top: 1px solid rgba(179, 179, 179, 0.3);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--gris);
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .logos-container {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero h1, .hero h2 {
+                font-size: 1.8em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .accordion-header {
+                font-size: 0.95em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="logos-container">
+                <div class="logo-box">
+                    <img src="ISP2_LOGO__1_.png" alt="Logo ISP2">
+                </div>
+                <div></div>
+                <div class="logo-box">
+                    <img src="lengua.png" alt="Logo Lengua y Literatura">
+                </div>
+            </div>
+
+            <h1>Profesorado de Educación Secundaria</h1>
+            <h2>en Lengua y Literatura</h2>
+            <p class="plan-label">Plan 514/2018</p>
+
+            <div class="cta-buttons">
+                <button class="btn" onclick="scrollToSection('plan')">Plan de Estudio</button>
+                <button class="btn" onclick="scrollToSection('faq')">Preguntas y Trámites</button>
+                <a href="https://www.instagram.com/isp2.lengua/" target="_blank" class="btn btn-fucsia">Seguinos @isp2.lengua</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMACIÓN GENERAL -->
+    <div class="info-section">
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>Duración</h3>
+                <p>4 años</p>
+            </div>
+            <div class="info-item">
+                <h3>Título</h3>
+                <p>Profesor/a de Educación Secundaria en Lengua y Literatura</p>
+            </div>
+            <div class="info-item">
+                <h3>Turno</h3>
+                <p>TARDE - 13:00 a 17:50</p>
+            </div>
+            <div class="info-item">
+                <h3>Ubicación</h3>
+                <p>Mariano Vera 548, Rafaela, Santa Fe</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAN DE ESTUDIO -->
+    <section class="section" id="plan">
+        <h2>Plan de Estudio</h2>
+
+        <div id="plan-accordion-container"></div>
+
+        <a href="PLAN_VIR.pdf" download class="download-btn">📥 Descargar PDF Completo</a>
+    </section>
+
+    <!-- CALENDARIO ACADÉMICO -->
+    <section class="section">
+        <h2>Calendario Académico</h2>
+        <div class="construction-box">
+            <h3>En construcción</h3>
+            <p>Estaremos agregando fechas de cursada, mesas de examen y feriados pronto.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+
+        <!-- INGRESANTES -->
+        <div class="faq-category">
+            <h3>📝 Para Ingresantes</h3>
+
+            <div class="accordion">
+                <div class="accordion-header expanded" onclick="toggleAccordion(this)">
+                    ¿Cómo y cuándo me inscribo a la carrera?
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content show">
+                    <p><strong>Las fechas aún no están definidas.</strong></p>
+                    <p style="margin-top: 10px;">Contactá a secretaría para más información:</p>
+                    <p>📧 <a href="mailto:lengua.isp2@gmail.com">lengua.isp2@gmail.com</a></p>
+                    <p>📞 03492 577101</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Qué documentación debo presentar?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="materia-list">
+                        <li><strong>DNI:</strong> Fotocopia legalizada (anverso y reverso)</li>
+                        <li><strong>Título de Nivel Medio:</strong> Fotocopia legalizada o QR</li>
+                        <li><strong>Certificado de Salud:</strong> Extendido por organismo oficial o médico particular</li>
+                        <li><strong>Fotos:</strong> 2 fotos 4×4 tipo carnet actualizadas (apellido y nombre al dorso)</li>
+                        <li><strong>Partida de nacimiento:</strong> Solo si naciste en otra provincia</li>
+                        <li><strong>Aporte Cooperadora:</strong> $40.000</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Hay curso o taller de ingreso?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Sí, hay una instancia llamada PROPEDÉUTICO.</strong></p>
+                    <p style="margin-top: 10px;">Es <strong>no evaluativo</strong> (no se rinde nada). Su objetivo es que te conozcas con tus compañeros, se presente la carrera y conozcan a los profesores.</p>
+                    <p style="margin-top: 10px;">La fecha se define posteriormente. Contactá a secretaría para más detalles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTUDIANTES REGULARES -->
+        <div class="faq-category">
+            <h3>👨‍🎓 Estudiantes Regulares</h3>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Cómo solicito el Certificado de Alumno Regular?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Acceso a través de la plataforma de alumnos:</strong></p>
+                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank">https://isp2rafaela.edu.ar/login.aspx</a></p>
+                    <p style="margin-top: 10px;"><strong>Pasos:</strong></p>
+                    <ol style="margin-top: 10px; margin-left: 20px;">
+                        <li>Ingresa con tu usuario y contraseña</li>
+                        <li>Ve a <strong>CURSADO</strong></li>
+                        <li>Luego <strong>CERTIFICADO ALUMNO REGULAR</strong></li>
+                        <li>Finalmente <strong>GENERAR CERTIFICADO</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Cómo me inscribo al Boleto Educativo?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Es un trámite que se realiza cada principio de año.</p>
+                    <p style="margin-top: 10px;">Contactá a secretaría para conocer las fechas y procedimiento:</p>
+                    <p>📧 <a href="mailto:lengua.isp2@gmail.com">lengua.isp2@gmail.com</a></p>
+                    <p>📞 03492 577101</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Cómo solicito equivalencias de materias aprobadas en otra institución?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Este proceso se llama HOMOLOGACIÓN.</strong></p>
+                    <p style="margin-top: 10px;"><strong>Fechas:</strong> Se establece una fecha diferente cada año (ejemplo: del 13 al 24 de abril).</p>
+                    <p style="margin-top: 10px;"><strong>Dónde:</strong> Departamento de Alumnos, de 16:00 a 20:00 hs.</p>
+                    <p style="margin-top: 10px;"><strong>Qué llevar:</strong> Planilla correspondiente (Directa o No Directa) impresa.</p>
+                    <p style="margin-top: 10px;"><strong>Descarga las planillas:</strong></p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-directa-2024.pdf" target="_blank">Homologación Directa</a></li>
+                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-2024.pdf" target="_blank">Homologación No Directa</a></li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Documentación a presentar:</strong></p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Certificado de aprobación de la asignatura (autenticado)</li>
+                        <li>Fotocopia autenticada del Plan con especificación de bibliografía</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
+                    ¿Cómo inscribirme a las mesas de examen final?
+                    <span class="accordion-toggle">▶</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Acceso a través de la plataforma de alumnos:</strong></p>
+                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank">https://isp2rafaela.edu.ar/login.aspx</a></p>
+                    <p style="margin-top: 10px;"><strong>Pasos:</strong></p>
+                    <ol style="margin-top: 10px; margin-left: 20px;">
+                        <li>Ingresa con tu usuario y contraseña</li>
+                        <li>Ve a <strong>EXÁMENES</strong></li>
+                        <li>Luego <strong>INSCRIPCIÓN A EXÁMENES</strong></li>
+                    </ol>
+                    <p style="margin-top: 10px;">Los detalles completos aparecerán cuando se abran las inscripciones. Las fechas de mesas especiales serán comunicadas oportunamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Información de Contacto</h3>
+                <p>📍 Mariano Vera 548, Rafaela, Santa Fe</p>
+                <p>📞 <a href="tel:03492577101">03492 577101</a></p>
+                <p>📧 <a href="mailto:lengua.isp2@gmail.com">lengua.isp2@gmail.com</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Seguinos en Redes</h3>
+                <p>Instagram: <a href="https://www.instagram.com/isp2.lengua/" target="_blank">@isp2.lengua</a></p>
+                <p>Contenido sobre la carrera y experiencias de estudiantes.</p>
+                <p style="margin-top: 15px;"><a href="https://isp2-sfe.infd.edu.ar/sitio/" target="_blank">🔗 Web oficial del ISP 2</a></p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Instituto Superior del Profesorado N° 2 "Joaquín V. González"</p>
+                <p style="margin-top: 10px; font-size: 0.8em;">Profesorado de Educación Secundaria en Lengua y Literatura</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos del plan de estudio
+        const planData = {
+            1: {
+                nombre: "Primer Año",
+                materias: [
+                    { numero: 1, nombre: "Pedagogía" },
+                    { numero: 2, nombre: "UCCV: Movimientos Artísticos y Proyectos Culturales" },
+                    { numero: 3, nombre: "Lengua Española I" },
+                    { numero: 4, nombre: "Lingüística General" },
+                    { numero: 5, nombre: "Itinerario por la Literatura Argentina I" },
+                    { numero: 6, nombre: "Literaturas Antiguas" },
+                    { numero: 7, nombre: "Lecturas Críticas I" },
+                    { numero: 8, nombre: "Producción Oral y Escrita" },
+                    { numero: 9, nombre: "Práctica Docente I: Escenarios Educativos" },
+                    { numero: 10, nombre: "UDI" }
+                ]
+            },
+            2: {
+                nombre: "Segundo Año",
+                materias: [
+                    { numero: 11, nombre: "Instituciones Educativas" },
+                    { numero: 12, nombre: "Didáctica y Currículum" },
+                    { numero: 13, nombre: "Psicología y Educación" },
+                    { numero: 14, nombre: "Latín" },
+                    { numero: 15, nombre: "Lengua Española II" },
+                    { numero: 16, nombre: "Lingüística del Texto y Análisis del Discurso I" },
+                    { numero: 17, nombre: "Itinerario por la Literatura Argentina II" },
+                    { numero: 18, nombre: "Literaturas Medievales y Renacentistas" },
+                    { numero: 19, nombre: "UCO" },
+                    { numero: 20, nombre: "Práctica Docente II: La Institución Escolar" }
+                ]
+            },
+            3: {
+                nombre: "Tercer Año",
+                materias: [
+                    { numero: 21, nombre: "UCCV: Alfabetización" },
+                    { numero: 22, nombre: "Filosofía" },
+                    { numero: 23, nombre: "Historia y Política de la Educación Argentina" },
+                    { numero: 24, nombre: "Sujetos de la Educación Secundaria" },
+                    { numero: 25, nombre: "Lingüística del Texto y Análisis del Discurso II" },
+                    { numero: 26, nombre: "Didáctica de la Lengua y la Literatura I" },
+                    { numero: 27, nombre: "Itinerario por la Literatura Latinoamericana I" },
+                    { numero: 28, nombre: "Literaturas Modernas" },
+                    { numero: 29, nombre: "Lecturas Críticas II" },
+                    { numero: 30, nombre: "Práctica Docente III: La Clase, los Procesos" }
+                ]
+            },
+            4: {
+                nombre: "Cuarto Año",
+                materias: [
+                    { numero: 31, nombre: "Ética y Trabajo Docente" },
+                    { numero: 32, nombre: "Educación Sexual Integral (ESI)" },
+                    { numero: 33, nombre: "Metodología y Prácticas de la Investigación" },
+                    { numero: 34, nombre: "Modelos Teóricos Lingüísticos" },
+                    { numero: 35, nombre: "Semiótica" },
+                    { numero: 36, nombre: "Cambio y Variedades Lingüísticas" },
+                    { numero: 37, nombre: "Didáctica de la Lengua y la Literatura II" },
+                    { numero: 38, nombre: "Itinerario por la Literatura Latinoamericana II" },
+                    { numero: 39, nombre: "Literaturas Contemporáneas" },
+                    { numero: 40, nombre: "Práctica Docente IV: Residencia - El Rol Docente y su Práctica" }
+                ]
+            }
+        };
+
+        // Generar acordeones del plan
+        function generarPlan() {
+            const container = document.getElementById('plan-accordion-container');
+            let html = '';
+
+            for (let año in planData) {
+                const data = planData[año];
+                const expanded = año === '1' ? 'expanded' : 'collapsed';
+                const toggle = año === '1' ? '▼' : '▶';
+                const showClass = año === '1' ? 'show' : '';
+
+                html += `
+                    <div class="accordion">
+                        <div class="accordion-header ${expanded}" onclick="toggleAccordion(this)">
+                            📚 ${data.nombre}
+                            <span class="accordion-toggle">${toggle}</span>
+                        </div>
+                        <div class="accordion-content ${showClass}">
+                            <ul class="materia-list">
+                                ${data.materias.map(materia => 
+                                    `<li><strong>${materia.numero} -</strong> ${materia.nombre}</li>`
+                                ).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Toggle acordeón
+        function toggleAccordion(headerElement) {
+            const content = headerElement.nextElementSibling;
+            const isExpanded = headerElement.classList.contains('expanded');
+
+            if (isExpanded) {
+                headerElement.classList.remove('expanded');
+                headerElement.classList.add('collapsed');
+                content.classList.remove('show');
+                headerElement.querySelector('.accordion-toggle').textContent = '▶';
+            } else {
+                headerElement.classList.remove('collapsed');
+                headerElement.classList.add('expanded');
+                content.classList.add('show');
+                headerElement.querySelector('.accordion-toggle').textContent = '▼';
+            }
+        }
+
+        // Scroll a secciones
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            generarPlan();
+        });
+    </script>
+</body>
+</html>
