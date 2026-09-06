@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesorado en Lengua y Literatura - ISP N° 2</title>
+    
+    <!-- Título de la pestaña del navegador -->
+    <title>Profesorado de Lengua y Literatura</title>
+
+    <!-- Etiquetas Open Graph para compartir enlaces (WhatsApp, Redes Sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Profesorado de Lengua y Literatura">
+    <meta property="og:description" content="Profesorado de Educación Secundaria en Lengua y Literatura - ISP N° 2">
+    <meta property="og:image" content="lengua.png">
+
     <style>
         * {
             margin: 0;
@@ -66,14 +75,14 @@
         }
 
         .hero h2 {
-            font-size: 2.2em;
+            font-size: 2em;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
         .plan-label {
             font-size: 1.1em;
-            color: var(--gris);
+            color: #e0e0e0;
             margin-bottom: 40px;
             font-weight: 500;
         }
@@ -97,20 +106,26 @@
             border: 2.5px solid var(--blanco);
             background-color: transparent;
             color: var(--blanco);
+            display: inline-block;
         }
 
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: var(--blanco);
+            color: var(--azul);
         }
 
         .btn-fucsia {
             background-color: var(--fucsia);
             border-color: var(--fucsia);
+            color: var(--blanco);
         }
 
         .btn-fucsia:hover {
             background-color: #d63f6f;
+            border-color: #d63f6f;
+            color: var(--blanco);
         }
 
         /* INFORMACIÓN GENERAL */
@@ -122,11 +137,13 @@
             border: 2px solid var(--azul);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
         }
 
@@ -141,12 +158,6 @@
             color: var(--azul);
             font-size: 0.95em;
             font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* SECCIONES PRINCIPALES */
@@ -189,29 +200,25 @@
             font-weight: 600;
             border: 2px solid var(--azul);
             transition: all 0.3s ease;
+            user-select: none;
         }
 
         .accordion-header:hover {
             background-color: #074d63;
-            transform: translateX(5px);
-        }
-
-        .accordion-header.expanded {
-            background-color: var(--azul);
+            transform: translateX(3px);
         }
 
         .accordion-header.collapsed {
-            opacity: 0.7;
             background-color: var(--celeste);
+            border-color: var(--celeste);
         }
 
         .accordion-header.collapsed:hover {
-            opacity: 0.9;
             background-color: #0085a0;
         }
 
         .accordion-toggle {
-            font-size: 1.3em;
+            font-size: 1.1em;
             font-weight: bold;
         }
 
@@ -267,6 +274,7 @@
 
         .download-btn:hover {
             background-color: #d63f6f;
+            border-color: #d63f6f;
             transform: translateY(-2px);
         }
 
@@ -284,6 +292,7 @@
             color: var(--azul);
             font-size: 1.5em;
             margin-bottom: 15px;
+            margin-top: 0;
         }
 
         .construction-box p {
@@ -378,6 +387,7 @@
     </style>
 </head>
 <body>
+
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-container">
@@ -398,7 +408,7 @@
             <div class="cta-buttons">
                 <button class="btn" onclick="scrollToSection('plan')">Plan de Estudio</button>
                 <button class="btn" onclick="scrollToSection('faq')">Preguntas y Trámites</button>
-                <a href="https://www.instagram.com/isp2.lengua/" target="_blank" class="btn btn-fucsia">Seguinos @isp2.lengua</a>
+                <a href="https://www.instagram.com/isp2.lengua/" target="_blank" rel="noopener noreferrer" class="btn btn-fucsia">Seguinos @isp2.lengua</a>
             </div>
         </div>
     </section>
@@ -453,21 +463,21 @@
 
             <div class="accordion">
                 <div class="accordion-header expanded" onclick="toggleAccordion(this)">
-                    ¿Cómo y cuándo me inscribo a la carrera?
+                    <span>¿Cómo y cuándo me inscribo a la carrera?</span>
                     <span class="accordion-toggle">▼</span>
                 </div>
                 <div class="accordion-content show">
                     <p><strong>Las fechas aún no están definidas.</strong></p>
                     <p style="margin-top: 10px;">Contactá a secretaría para más información:</p>
                     <p>📧 <a href="mailto:isp2rafaela@gmail.com">isp2rafaela@gmail.com</a></p>
-                <p>📧 <a href="mailto:secretariaisp2@gmail.com">secretariaisp2@gmail.com</a></p>
+                    <p>📧 <a href="mailto:secretariaisp2@gmail.com">secretariaisp2@gmail.com</a></p>
                     <p>📞 03492 577101</p>
                 </div>
             </div>
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Qué documentación debo presentar?
+                    <span>¿Qué documentación debo presentar?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
@@ -484,7 +494,7 @@
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Hay curso o taller de ingreso?
+                    <span>¿Hay curso o taller de ingreso?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
@@ -501,12 +511,12 @@
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Cómo solicito el Certificado de Alumno Regular?
+                    <span>¿Cómo solicito el Certificado de Alumno Regular?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
                     <p><strong>Acceso a través de la plataforma de alumnos:</strong></p>
-                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank">https://isp2rafaela.edu.ar/login.aspx</a></p>
+                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank" rel="noopener noreferrer">https://isp2rafaela.edu.ar/login.aspx</a></p>
                     <p style="margin-top: 10px;"><strong>Pasos:</strong></p>
                     <ol style="margin-top: 10px; margin-left: 20px;">
                         <li>Ingresa con tu usuario y contraseña</li>
@@ -519,21 +529,21 @@
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Cómo me inscribo al Boleto Educativo?
+                    <span>¿Cómo me inscribo al Boleto Educativo?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
                     <p>Es un trámite que se realiza cada principio de año.</p>
                     <p style="margin-top: 10px;">Contactá a secretaría para conocer las fechas y procedimiento:</p>
                     <p>📧 <a href="mailto:isp2rafaela@gmail.com">isp2rafaela@gmail.com</a></p>
-                <p>📧 <a href="mailto:secretariaisp2@gmail.com">secretariaisp2@gmail.com</a></p>
+                    <p>📧 <a href="mailto:secretariaisp2@gmail.com">secretariaisp2@gmail.com</a></p>
                     <p>📞 03492 577101</p>
                 </div>
             </div>
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Cómo solicito equivalencias de materias aprobadas en otra institución?
+                    <span>¿Cómo solicito equivalencias de materias aprobadas en otra institución?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
@@ -543,8 +553,8 @@
                     <p style="margin-top: 10px;"><strong>Qué llevar:</strong> Planilla correspondiente (Directa o No Directa) impresa.</p>
                     <p style="margin-top: 10px;"><strong>Descarga las planillas:</strong></p>
                     <ul style="margin-top: 10px; margin-left: 20px;">
-                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-directa-2024.pdf" target="_blank">Homologación Directa</a></li>
-                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-2024.pdf" target="_blank">Homologación No Directa</a></li>
+                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-directa-2024.pdf" target="_blank" rel="noopener noreferrer">Homologación Directa</a></li>
+                        <li><a href="https://isp2-sfe.infd.edu.ar/sitio/wp-content/uploads/2024/08/Solicitud-de-homologacion-2024.pdf" target="_blank" rel="noopener noreferrer">Homologación No Directa</a></li>
                     </ul>
                     <p style="margin-top: 10px;"><strong>Documentación a presentar:</strong></p>
                     <ul style="margin-top: 10px; margin-left: 20px;">
@@ -556,12 +566,12 @@
 
             <div class="accordion">
                 <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                    ¿Cómo inscribirme a las mesas de examen final?
+                    <span>¿Cómo inscribirme a las mesas de examen final?</span>
                     <span class="accordion-toggle">▶</span>
                 </div>
                 <div class="accordion-content">
                     <p><strong>Acceso a través de la plataforma de alumnos:</strong></p>
-                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank">https://isp2rafaela.edu.ar/login.aspx</a></p>
+                    <p style="margin-top: 10px;"><a href="https://isp2rafaela.edu.ar/login.aspx" target="_blank" rel="noopener noreferrer">https://isp2rafaela.edu.ar/login.aspx</a></p>
                     <p style="margin-top: 10px;"><strong>Pasos:</strong></p>
                     <ol style="margin-top: 10px; margin-left: 20px;">
                         <li>Ingresa con tu usuario y contraseña</li>
@@ -587,9 +597,9 @@
 
             <div class="footer-section">
                 <h3>Seguinos en Redes</h3>
-                <p>Instagram: <a href="https://www.instagram.com/isp2.lengua/" target="_blank">@isp2.lengua</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/isp2.lengua/" target="_blank" rel="noopener noreferrer">@isp2.lengua</a></p>
                 <p>Contenido sobre la carrera y experiencias de estudiantes.</p>
-                <p style="margin-top: 15px;"><a href="https://isp2-sfe.infd.edu.ar/sitio/" target="_blank">🔗 Web oficial del ISP 2</a></p>
+                <p style="margin-top: 15px;"><a href="https://isp2-sfe.infd.edu.ar/sitio/" target="_blank" rel="noopener noreferrer">🔗 Web oficial del ISP 2</a></p>
             </div>
 
             <div class="footer-bottom">
@@ -678,7 +688,7 @@
                 html += `
                     <div class="accordion">
                         <div class="accordion-header ${expanded}" onclick="toggleAccordion(this)">
-                            📚 ${data.nombre}
+                            <span>📚 ${data.nombre}</span>
                             <span class="accordion-toggle">${toggle}</span>
                         </div>
                         <div class="accordion-content ${showClass}">
